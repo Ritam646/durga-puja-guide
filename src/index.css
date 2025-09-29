@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --gold: #D4AF37;
+  --red: #8B0000;
+  --bg-gradient: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/durga-bg.jpg');
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  color: #fff;
+  background: var(--bg-gradient) center/cover fixed; /* Overwhelming bg */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
+/* Parallax Scroll Effect */
+#root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-gradient);
+  z-index: -1;
+  animation: parallax 20s infinite linear; /* Subtle bg shift */
+}
+
+@keyframes parallax {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Fade-in Animation */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glow Pulse (Diya-like) */
+.glow {
+  animation: glow 2s infinite alternate;
+  box-shadow: 0 0 20px var(--gold);
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px var(--gold); }
+  to { box-shadow: 0 0 30px var(--gold), 0 0 40px var(--red); }
+}
+
+/* Floating Particles (Overwhelming Festive Vibe) */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: float 6s infinite linear;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Button Hover: Pulsing Heartbeat */
+button {
+  background: linear-gradient(45deg, var(--gold), var(--red));
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  animation: pulse 1.5s infinite; /* Dhak drum pulse */
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Landing Styles */
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.landing h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  margin: 0;
+  color: var(--gold);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  animation: glow 2s infinite alternate;
+}
+
+.landing p {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+/* Logo Static Glow (No Spin) */
+.logo {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 0 10px var(--gold)); /* Static glow */
+  /* Removed spinGlow animation */
+}
+
+/* Dashboard Grid */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  padding: 1rem;
+  border-radius: 10px;
+  animation: fadeIn 1s;
+}
+
+/* Map Container */
+.map-container {
+  height: 70vh;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: fadeIn 1s;
+}
+
+/* About Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #000, var(--red));
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 600px;
+  text-align: left;
+  animation: glow 2s infinite alternate;
+}
+
+.close {
+  float: right;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--gold);
+}
+
+/* Chatbot Enhancements (No Float Animation) */
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: 600px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(139,0,0,0.8));
+  border-radius: 20px;
+  box-shadow: 0 0 30px var(--gold);
+  overflow: hidden;
+  z-index: 1000;
+  /* Removed float animation */
+}
+
+.chat-messages {
+  height: 85%;
+  overflow-y: auto;
+  padding: 15px;
+  background: rgba(255,255,255,0.1);
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 15px;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.user { background: var(--gold); color: #000; text-align: right; }
+.bot { background: rgba(255,255,255,0.2); color: #fff; }
+
+.chat-input {
+  display: flex;
+  padding: 15px;
+  background: rgba(0,0,0,0.5);
+}
+
+.chat-input input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin-right: 10px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.chat-input input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .landing h1 { font-size: 2.5rem; }
+  .chatbot { width: 90%; right: 5%; }
+}
